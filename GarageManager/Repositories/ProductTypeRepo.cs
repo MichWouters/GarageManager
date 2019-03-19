@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 /// <summary>
 /// Summary description for ProductTypeTypeModel
@@ -37,7 +34,6 @@ public class ProductTypeRepo
 
             db.SaveChanges();
             return productType.Name + "was succesfully updated";
-
         }
         catch (Exception e)
         {

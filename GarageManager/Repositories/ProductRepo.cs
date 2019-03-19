@@ -39,7 +39,6 @@ namespace Models
 
                 db.SaveChanges();
                 return product.Name + " was succesfully updated";
-
             }
             catch (Exception e)
             {
@@ -89,7 +88,7 @@ namespace Models
                 using (GarageEntities db = new GarageEntities())
                 {
                     List<Product> products = (from x in db.Products
-                        select x).ToList();
+                                              select x).ToList();
                     return products;
                 }
             }
@@ -106,8 +105,8 @@ namespace Models
                 using (GarageEntities db = new GarageEntities())
                 {
                     List<Product> products = (from x in db.Products
-                        where x.TypeID == typeId
-                        select x).ToList();
+                                              where x.TypeID == typeId
+                                              select x).ToList();
                     return products;
                 }
             }

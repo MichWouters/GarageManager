@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using GarageManager.Models;
+using System;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace GarageManager.Repositories
 {
-    public class ApplicationDbContext: DbContext
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext()
-            :base("name = GarageDB")
+            : base("name = GarageDB")
         {
-
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
