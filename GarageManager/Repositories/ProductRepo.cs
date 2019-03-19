@@ -1,16 +1,17 @@
-﻿using System;
+﻿using GarageManager.Models;
+using GarageManager.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Models
+namespace GarageManager.Repositories
 {
-    public class ProductRepo
+    public class ProductRepo: Repository
     {
         public string InsertProduct(Product product)
         {
             try
             {
-                GarageEntities db = new GarageEntities();
                 db.Products.Add(product);
                 db.SaveChanges();
 
@@ -26,8 +27,6 @@ namespace Models
         {
             try
             {
-                GarageEntities db = new GarageEntities();
-
                 //Fetch object from db
                 Product p = db.Products.Find(id);
 
@@ -50,7 +49,6 @@ namespace Models
         {
             try
             {
-                GarageEntities db = new GarageEntities();
                 Product product = db.Products.Find(id);
 
                 db.Products.Attach(product);
@@ -69,11 +67,8 @@ namespace Models
         {
             try
             {
-                using (GarageEntities db = new GarageEntities())
-                {
-                    Product product = db.Products.Find(id);
-                    return product;
-                }
+                Product product = db.Products.Find(id);
+                return product;
             }
             catch (Exception)
             {
@@ -85,12 +80,9 @@ namespace Models
         {
             try
             {
-                using (GarageEntities db = new GarageEntities())
-                {
-                    List<Product> products = (from x in db.Products
-                                              select x).ToList();
-                    return products;
-                }
+                List<Product> products = (from x in db.Products
+                                          select x).ToList();
+                return products;
             }
             catch (Exception)
             {
@@ -102,7 +94,6 @@ namespace Models
         {
             try
             {
-                using (GarageEntities db = new GarageEntities())
                 {
                     List<Product> products = (from x in db.Products
                                               where x.TypeID == typeId

@@ -118,16 +118,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="App_Data\Images\BannerCar.jpg" />
-    <Content Include="App_Data\Images\Body Panels.jpg" />
-    <Content Include="App_Data\Images\BrakeDiscs.jpg" />
-    <Content Include="App_Data\Images\Car Battery.jpg" />
-    <Content Include="App_Data\Images\Clutch kits.jpg" />
-    <Content Include="App_Data\Images\Cylinder Heads.jpg" />
-    <Content Include="App_Data\Images\Engine Oil.jpg" />
-    <Content Include="App_Data\Images\Fans.jpg" />
-    <Content Include="App_Data\Images\index.jpg" />
-    <Content Include="App_Data\Images\Shock Absorbers.jpg" />
+    <Content Include="Images\BannerCar.jpg" />
+    <Content Include="Images\Body Panels.jpg" />
+    <Content Include="Images\BrakeDiscs.jpg" />
+    <Content Include="Images\Car Battery.jpg" />
+    <Content Include="Images\Clutch kits.jpg" />
+    <Content Include="Images\Cylinder Heads.jpg" />
+    <Content Include="Images\Engine Oil.jpg" />
+    <Content Include="Images\Fans.jpg" />
+    <Content Include="Images\index.jpg" />
+    <Content Include="Images\Shock Absorbers.jpg" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -247,6 +247,7 @@
     <Compile Include="Repositories\CartRepo.cs" />
     <Compile Include="Repositories\ProductRepo.cs" />
     <Compile Include="Repositories\ProductTypeRepo.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserDetailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -271,7 +272,9 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />

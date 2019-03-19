@@ -1,12 +1,12 @@
-﻿using System.Linq;
+﻿using GarageManager.Models;
+using System.Linq;
 
-namespace Models
+namespace GarageManager.Repositories
 {
-    public class UserDetailRepo
+    public class UserDetailRepo: Repository
     {
         public UserDetail GetUserInformation(string guId)
         {
-            GarageEntities db = new GarageEntities();
             var info = (from x in db.UserDetails
                         where x.Guid == guId
                         select x).FirstOrDefault();
@@ -15,7 +15,6 @@ namespace Models
 
         public void InsertUserDetail(UserDetail userDetail)
         {
-            GarageEntities db = new GarageEntities();
             db.UserDetails.Add(userDetail);
             db.SaveChanges();
         }

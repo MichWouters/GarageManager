@@ -2,6 +2,10 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
-    <h3>Your application description page.</h3>
-    <p>Use this area to provide additional information.</p>
+    <p>
+        - We know what we are, but not what we may be .
+    </p>
+    <p>
+        <strong style="font-style: italic">Abraham Lincoln</strong>
+    </p>
 </asp:Content>

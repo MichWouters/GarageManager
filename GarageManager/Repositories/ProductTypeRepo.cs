@@ -1,62 +1,59 @@
-﻿using System;
+﻿using GarageManager.Models;
+using System;
 
-/// <summary>
-/// Summary description for ProductTypeTypeModel
-/// </summary>
-public class ProductTypeRepo
+namespace GarageManager.Repositories
 {
-    public string InsertProductType(ProductType productType)
+    public class ProductTypeRepo : Repository
     {
-        try
+        public string InsertProductType(ProductType productType)
         {
-            GarageEntities db = new GarageEntities();
-            db.ProductTypes.Add(productType);
-            db.SaveChanges();
+            try
+            {
+                db.ProductTypes.Add(productType);
+                db.SaveChanges();
 
-            return productType.Name + "was succesfully inserted";
+                return productType.Name + "was succesfully inserted";
+            }
+            catch (Exception e)
+            {
+                return "Error:" + e;
+            }
         }
-        catch (Exception e)
+
+        public string UpdateProductType(int id, ProductType productType)
         {
-            return "Error:" + e;
+            try
+            {
+                //Fetch object from db
+                ProductType p = db.ProductTypes.Find(id);
+
+                p.Name = productType.Name;
+
+                db.SaveChanges();
+                return productType.Name + "was succesfully updated";
+            }
+            catch (Exception e)
+            {
+                return "Error:" + e;
+            }
         }
-    }
 
-    public string UpdateProductType(int id, ProductType productType)
-    {
-        try
+        public string DeleteProductType(int id)
         {
-            GarageEntities db = new GarageEntities();
+            try
+            {
+                ProductType productType = db.ProductTypes.Find(id);
 
-            //Fetch object from db
-            ProductType p = db.ProductTypes.Find(id);
+                db.ProductTypes.Attach(productType);
+                db.ProductTypes.Remove(productType);
+                db.SaveChanges();
 
-            p.Name = productType.Name;
-
-            db.SaveChanges();
-            return productType.Name + "was succesfully updated";
-        }
-        catch (Exception e)
-        {
-            return "Error:" + e;
-        }
-    }
-
-    public string DeleteProductType(int id)
-    {
-        try
-        {
-            GarageEntities db = new GarageEntities();
-            ProductType productType = db.ProductTypes.Find(id);
-
-            db.ProductTypes.Attach(productType);
-            db.ProductTypes.Remove(productType);
-            db.SaveChanges();
-
-            return productType.Name + "was succesfully deleted";
-        }
-        catch (Exception e)
-        {
-            return "Error:" + e;
+                return productType.Name + "was succesfully deleted";
+            }
+            catch (Exception e)
+            {
+                return "Error:" + e;
+            }
         }
     }
 }
