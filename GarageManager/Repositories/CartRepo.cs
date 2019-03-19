@@ -7,7 +7,7 @@ namespace GarageManager.Repositories
 {
     public class CartRepo : Repository
     {
-        public string InsertCart(Cart cart)
+        public string InsertCart(CartModel cart)
         {
             try
             {
@@ -22,12 +22,12 @@ namespace GarageManager.Repositories
             }
         }
 
-        public string UpdateCart(int id, Cart cart)
+        public string UpdateCart(int id, CartModel cart)
         {
             try
             {
                 //Fetch object from db
-                Cart p = db.Carts.Find(id);
+                CartModel p = db.Carts.Find(id);
 
                 p.DatePurchased = cart.DatePurchased;
                 p.ClientID = cart.ClientID;
@@ -48,7 +48,7 @@ namespace GarageManager.Repositories
         {
             try
             {
-                Cart cart = db.Carts.Find(id);
+                CartModel cart = db.Carts.Find(id);
 
                 db.Carts.Attach(cart);
                 db.Carts.Remove(cart);
@@ -62,9 +62,9 @@ namespace GarageManager.Repositories
             }
         }
 
-        public List<Cart> GetOrdersInCart(string clientId)
+        public List<CartModel> GetOrdersInCart(string clientId)
         {
-            List<Cart> orders = (from x in db.Carts
+            List<CartModel> orders = (from x in db.Carts
                                  where x.ClientID == clientId
                                  && x.IsInCart
                                  orderby x.DatePurchased descending
@@ -91,19 +91,19 @@ namespace GarageManager.Repositories
 
         public void UpdateQuantity(int id, int quantity)
         {
-            Cart p = db.Carts.Find(id);
+            CartModel p = db.Carts.Find(id);
             p.Amount = quantity;
 
             db.SaveChanges();
         }
 
-        public void MarkOrdersAsPaid(List<Cart> carts)
+        public void MarkOrdersAsPaid(List<CartModel> carts)
         {
             if (carts != null)
             {
-                foreach (Cart cart in carts)
+                foreach (CartModel cart in carts)
                 {
-                    Cart oldCart = db.Carts.Find(cart.ID);
+                    CartModel oldCart = db.Carts.Find(cart.ID);
                     oldCart.DatePurchased = DateTime.Now;
                     oldCart.IsInCart = false;
                 }

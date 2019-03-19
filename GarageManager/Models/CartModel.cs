@@ -2,7 +2,7 @@
 
 namespace GarageManager.Models
 {
-    public class Cart
+    public class CartModel
     {
         public int ID { get; set; }
         public string ClientID { get; set; }
@@ -11,6 +11,6 @@ namespace GarageManager.Models
         public DateTime DatePurchased { get; set; }
         public bool IsInCart { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual ProductModel Product { get; set; }
     }
 }

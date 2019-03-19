@@ -1,6 +1,6 @@
 ﻿namespace GarageManager.Models
 {
-    public class UserDetail
+    public class UserDetailModel
     {
         public int Id { get; set; }
         public string Guid { get; set; }

@@ -7,7 +7,7 @@ namespace GarageManager.Repositories
 {
     public class ProductRepo : Repository
     {
-        public string InsertProduct(Product product)
+        public string InsertProduct(ProductModel product)
         {
             try
             {
@@ -22,12 +22,12 @@ namespace GarageManager.Repositories
             }
         }
 
-        public string UpdateProduct(int id, Product product)
+        public string UpdateProduct(int id, ProductModel product)
         {
             try
             {
                 //Fetch object from db
-                Product p = db.Products.Find(id);
+                ProductModel p = db.Products.Find(id);
 
                 p.Name = product.Name;
                 p.Price = product.Price;
@@ -48,7 +48,7 @@ namespace GarageManager.Repositories
         {
             try
             {
-                Product product = db.Products.Find(id);
+                ProductModel product = db.Products.Find(id);
 
                 db.Products.Attach(product);
                 db.Products.Remove(product);
@@ -62,11 +62,11 @@ namespace GarageManager.Repositories
             }
         }
 
-        public Product GetProduct(int id)
+        public ProductModel GetProduct(int id)
         {
             try
             {
-                Product product = db.Products.Find(id);
+                ProductModel product = db.Products.Find(id);
                 return product;
             }
             catch (Exception)
@@ -75,11 +75,11 @@ namespace GarageManager.Repositories
             }
         }
 
-        public List<Product> GetAllProducts()
+        public List<ProductModel> GetAllProducts()
         {
             try
             {
-                List<Product> products = (from x in db.Products
+                List<ProductModel> products = (from x in db.Products
                                           select x).ToList();
                 return products;
             }
@@ -89,12 +89,12 @@ namespace GarageManager.Repositories
             }
         }
 
-        public List<Product> GetProductsByType(int typeId)
+        public List<ProductModel> GetProductsByType(int typeId)
         {
             try
             {
                 {
-                    List<Product> products = (from x in db.Products
+                    List<ProductModel> products = (from x in db.Products
                                               where x.TypeID == typeId
                                               select x).ToList();
                     return products;

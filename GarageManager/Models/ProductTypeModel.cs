@@ -2,11 +2,11 @@
 
 namespace GarageManager.Models
 {
-    public class ProductType
+    public class ProductTypeModel
     {
         public int ID { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<ProductModel> Products { get; set; }
     }
 }

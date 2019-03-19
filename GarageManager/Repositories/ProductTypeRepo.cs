@@ -5,7 +5,7 @@ namespace GarageManager.Repositories
 {
     public class ProductTypeRepo : Repository
     {
-        public string InsertProductType(ProductType productType)
+        public string InsertProductType(ProductTypeModel productType)
         {
             try
             {
@@ -20,12 +20,12 @@ namespace GarageManager.Repositories
             }
         }
 
-        public string UpdateProductType(int id, ProductType productType)
+        public string UpdateProductType(int id, ProductTypeModel productType)
         {
             try
             {
                 //Fetch object from db
-                ProductType p = db.ProductTypes.Find(id);
+                ProductTypeModel p = db.ProductTypes.Find(id);
 
                 p.Name = productType.Name;
 
@@ -42,7 +42,7 @@ namespace GarageManager.Repositories
         {
             try
             {
-                ProductType productType = db.ProductTypes.Find(id);
+                ProductTypeModel productType = db.ProductTypes.Find(id);
 
                 db.ProductTypes.Attach(productType);
                 db.ProductTypes.Remove(productType);

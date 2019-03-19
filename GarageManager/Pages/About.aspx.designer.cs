@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GarageManager
+namespace GarageManager.Pages
 {
 
 
-    public partial class Contact
+    public partial class About
     {
     }
 }
