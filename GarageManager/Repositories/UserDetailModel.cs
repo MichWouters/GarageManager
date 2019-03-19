@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace GarageManager.Repositories
 {
-    public class UserDetailRepo: Repository
+    public class UserDetailRepo : Repository
     {
         public UserDetail GetUserInformation(string guId)
         {

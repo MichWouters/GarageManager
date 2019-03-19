@@ -1,12 +1,11 @@
 ﻿using GarageManager.Models;
-using GarageManager.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace GarageManager.Repositories
 {
-    public class ProductRepo: Repository
+    public class ProductRepo : Repository
     {
         public string InsertProduct(Product product)
         {
