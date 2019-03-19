@@ -4,11 +4,6 @@ namespace GarageManager.Models
 {
     public class Product
     {
-        public Product()
-        {
-            this.Carts = new HashSet<Cart>();
-        }
-
         public int ID { get; set; }
         public int TypeID { get; set; }
         public string Name { get; set; }
