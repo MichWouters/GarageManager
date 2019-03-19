@@ -239,6 +239,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductType.cs" />
+    <Compile Include="Models\UserDetail.cs" />
     <Compile Include="Repositories\ApplicationDbContext.cs" />
     <Compile Include="Repositories\CartRepo.cs" />
     <Compile Include="Repositories\ProductRepo.cs" />
@@ -269,7 +273,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
