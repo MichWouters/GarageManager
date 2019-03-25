@@ -1,6 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Management.aspx.cs" Inherits="Pages_Management_Management" %>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Management.aspx.cs" Inherits="GarageManager.Pages.Management.Management" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:LinkButton ID="LinkButton1" runat="server" CssClass="button" PostBackUrl="~/Pages/Management/ManageProducts.aspx">Add new Product</asp:LinkButton>
 <p style="clear: both"></p>
 <asp:GridView ID="grdProducts" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="sdsProduct" Width="100%" AllowPaging="True" AllowSorting="True" OnRowEditing="grdProducts_RowEditing">
@@ -35,7 +34,7 @@
     </UpdateParameters>
 </asp:SqlDataSource>
     <br />
-    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="button" PostBackUrl="~/Pages/Management/ManageProductTypes.aspx">Add new Type</asp:LinkButton>
+    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="button" PostBackUrl="~/">Add new Type</asp:LinkButton>
     <p style="clear: both"></p>
 <br />
 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="sdsProductTypes" Width="50%" AllowPaging="True" AllowSorting="True" DataKeyNames="ID">
@@ -58,4 +57,3 @@
     </UpdateParameters>
 </asp:SqlDataSource>
 </asp:Content>
-

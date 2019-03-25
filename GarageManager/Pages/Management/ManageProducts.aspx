@@ -1,6 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="ManageProducts.aspx.cs" Inherits="Pages_Management_ManageProducts" %>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageProducts.aspx.cs" Inherits="GarageManager.Pages.Management.ManageProducts" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <p>Name:</p>
     <p>
         <asp:TextBox ID="txtName" runat="server" CssClass="inputs"></asp:TextBox>
@@ -34,4 +33,3 @@
         <asp:Label ID="lblResult" runat="server"></asp:Label>
     </p>
 </asp:Content>
-

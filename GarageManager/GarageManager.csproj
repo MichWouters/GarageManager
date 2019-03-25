@@ -142,6 +142,7 @@
     <Content Include="Pages\Management\Management.aspx" />
     <Content Include="Pages\Management\ManageProducts.aspx" />
     <Content Include="Pages\Management\ManageProductTypes.aspx" />
+    <Content Include="Pages\Management\WebForm1.aspx" />
     <Content Include="Pages\Product.aspx" />
     <Content Include="Pages\ShoppingCart.aspx" />
     <Content Include="Pages\Success.aspx" />
@@ -245,13 +246,29 @@
       <DependentUpon>Management.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Pages\Management\Management.aspx.designer.cs">
+      <DependentUpon>Management.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Management\ManageProducts.aspx.cs">
       <DependentUpon>ManageProducts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Pages\Management\ManageProducts.aspx.designer.cs">
+      <DependentUpon>ManageProducts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Management\ManageProductTypes.aspx.cs">
       <DependentUpon>ManageProductTypes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Management\ManageProductTypes.aspx.designer.cs">
+      <DependentUpon>ManageProductTypes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Management\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Management\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
