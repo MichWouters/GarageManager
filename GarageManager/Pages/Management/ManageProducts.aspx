@@ -8,7 +8,7 @@
     <p>
         <asp:DropDownList ID="ddlType" CssClass="inputs" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="ID">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GarageConnectionString %>" SelectCommand="SELECT * FROM [ProductType] ORDER BY [Name]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:defaultConnection %>" SelectCommand="SELECT * FROM [ProductType] ORDER BY [Name]"></asp:SqlDataSource>
     </p>
     <p>
         Price:</p>

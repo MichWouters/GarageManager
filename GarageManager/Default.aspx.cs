@@ -1,5 +1,4 @@
 ﻿using GarageManager.Models;
-using GarageManager.Pages;
 using GarageManager.Repositories;
 using System;
 using System.Collections.Generic;
@@ -37,6 +36,7 @@ namespace GarageManager
                         CssClass = "productPrice"
                     };
 
+                    productPanel.CssClass = "col-md-3";
                     productPanel.Controls.Add(imageButton);
                     productPanel.Controls.Add(new Literal { Text = "<br/>" });
                     productPanel.Controls.Add(lblName);

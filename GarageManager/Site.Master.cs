@@ -1,4 +1,5 @@
 ﻿using GarageManager.Repositories;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Net;
 using System.Web;
@@ -20,8 +21,7 @@ namespace GarageManager
                 btnLogOut.Visible = true;
 
                 var repo = new CartRepo();
-                string userId = "-1";
-                //string userId = HttpContext.Current.User.Identity.GetUserId();
+                string userId = HttpContext.Current.User.Identity.GetUserId();
                 litStatus.Text = string.Format("{0} ({1})", Context.User.Identity.Name, repo.GetAmountOfOrders(userId));
             }
             else
