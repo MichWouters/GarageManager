@@ -8,12 +8,6 @@ namespace GarageManager.Repositories
         public ApplicationDbContext()
             : base("defaultConnection")
         {
-            Database.SetInitializer(new GarageDbInitializer());
-        }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
         }
 
         public virtual DbSet<CartModel> Carts { get; set; }

@@ -11,21 +11,17 @@ namespace GarageManager.Pages.Account
 {
     public partial class Register : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-        }
-
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             // Default UserStore constructor uses the default connection string named: DefaultConnection
             var userStore = new UserStore<IdentityUser>();
 
-            //Set ConnectionString to GarageConnectionString
+            // Set ConnectionString to GarageConnectionString
             userStore.Context.Database.Connection.ConnectionString =
                 System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
             var manager = new UserManager<IdentityUser>(userStore);
 
-            //Create new user and try to store in DB.
+            // Create new user and try to store in DB.
             var user = new IdentityUser { UserName = txtUserName.Text };
 
             if (txtPassword.Text == txtConfirmPassword.Text)
@@ -47,13 +43,13 @@ namespace GarageManager.Pages.Account
                         var userRepo = new UserDetailRepo();
                         userRepo.InsertUserDetail(userDetail);
 
-                        //Store user in DB
+                        // Store user in DB
                         var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
                         var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
-                        //If succeedeed, log in the new user and set a cookie and redirect to homepage
+                        // If succeedeed, log in the new user and set a cookie and redirect to homepage
                         authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
-                        Response.Redirect("~/Index.aspx");
+                        Response.Redirect("~/Default.aspx");
                     }
                     else
                     {

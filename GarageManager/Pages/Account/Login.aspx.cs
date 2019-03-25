@@ -33,7 +33,7 @@ namespace GarageManager.Pages.Account
                 }, userIdentity);
 
                 //Redirect user to homepage
-                Response.Redirect("~/Index.aspx");
+                Response.Redirect("~/Default.aspx");
             }
             else
             {
