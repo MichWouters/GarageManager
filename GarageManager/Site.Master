@@ -51,7 +51,12 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/Pages/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/Pages/About">Reports</a></li>
+                        <li><a runat="server" href="~/Contact">Management</a></li>
+                         <li style="float: right">
+                            <a runat="server" href="~/Pages/Account/Register.aspx">Register</asp:HyperLink>
+                            <a runat="server" href="~/Pages/ShoppingCart.aspx"></asp:HyperLink>
+                        </li>
                     </ul>
                 </div>
             </div>
