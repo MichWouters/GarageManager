@@ -297,6 +297,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903251724257_InitialCreate.cs" />
+    <Compile Include="Migrations\201903251724257_InitialCreate.Designer.cs">
+      <DependentUpon>201903251724257_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ProductTypeModel.cs" />
@@ -359,6 +364,7 @@
     </Compile>
     <Compile Include="Repositories\ApplicationDbContext.cs" />
     <Compile Include="Repositories\CartRepo.cs" />
+    <Compile Include="Repositories\GarageDbInitializer.cs" />
     <Compile Include="Repositories\ProductRepo.cs" />
     <Compile Include="Repositories\ProductTypeRepo.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -405,6 +411,11 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903251724257_InitialCreate.resx">
+      <DependentUpon>201903251724257_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -4,9 +4,9 @@
     {
         protected ApplicationDbContext _db;
 
-        public Repository(ApplicationDbContext db)
+        public Repository()
         {
-            _db = db;
+            _db = new ApplicationDbContext();
         }
     }
 }
