@@ -16,28 +16,28 @@ namespace GarageManager.Pages
         {
             if (!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
             {
-                string clientId = Context.User.Identity.GetUserId();
-                if (clientId != null)
-                {
+                // string clientId = Context.User.Identity.GetUserId();
+                //if (clientId != null)
+                //{
                     int id = Convert.ToInt32(Request.QueryString["id"]);
                     int amount = Convert.ToInt32(ddlAmount.SelectedValue);
 
                     CartModel cart = new CartModel
                     {
                         Amount = amount,
-                        ClientID = clientId,
-                        DatePurchased = DateTime.Now,
+                        ClientID =  "",
+                        DatePurchased = DateTime.Now.ToUniversalTime(),
                         IsInCart = true,
                         ProductID = id
                     };
 
                     var repo = new CartRepo();
                     lblResult.Text = repo.InsertCart(cart);
-                }
-                else
-                {
-                    lblResult.Text = "Please log in to order items";
-                }
+                //}
+                //else
+                //{
+                //    lblResult.Text = "Please log in to order items";
+                //}
             }
         }
 

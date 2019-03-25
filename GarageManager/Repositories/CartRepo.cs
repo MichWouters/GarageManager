@@ -27,13 +27,13 @@ namespace GarageManager.Repositories
             try
             {
                 //Fetch object from db
-                CartModel p = db.Carts.Find(id);
+                CartModel oldCart = db.Carts.Find(id);
 
-                p.DatePurchased = cart.DatePurchased;
-                p.ClientID = cart.ClientID;
-                p.Amount = cart.Amount;
-                p.IsInCart = cart.IsInCart;
-                p.ProductID = cart.ProductID;
+                oldCart.DatePurchased = cart.DatePurchased;
+                oldCart.ClientID = cart.ClientID;
+                oldCart.Amount = cart.Amount;
+                oldCart.IsInCart = cart.IsInCart;
+                oldCart.ProductID = cart.ProductID;
 
                 db.SaveChanges();
                 return cart.DatePurchased + " was succesfully updated";
