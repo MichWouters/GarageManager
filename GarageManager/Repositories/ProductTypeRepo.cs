@@ -9,8 +9,8 @@ namespace GarageManager.Repositories
         {
             try
             {
-                db.ProductTypes.Add(productType);
-                db.SaveChanges();
+                _db.ProductTypes.Add(productType);
+                _db.SaveChanges();
 
                 return productType.Name + "was succesfully inserted";
             }
@@ -25,11 +25,11 @@ namespace GarageManager.Repositories
             try
             {
                 //Fetch object from db
-                ProductTypeModel p = db.ProductTypes.Find(id);
+                ProductTypeModel p = _db.ProductTypes.Find(id);
 
                 p.Name = productType.Name;
 
-                db.SaveChanges();
+                _db.SaveChanges();
                 return productType.Name + "was succesfully updated";
             }
             catch (Exception e)
@@ -42,11 +42,11 @@ namespace GarageManager.Repositories
         {
             try
             {
-                ProductTypeModel productType = db.ProductTypes.Find(id);
+                ProductTypeModel productType = _db.ProductTypes.Find(id);
 
-                db.ProductTypes.Attach(productType);
-                db.ProductTypes.Remove(productType);
-                db.SaveChanges();
+                _db.ProductTypes.Attach(productType);
+                _db.ProductTypes.Remove(productType);
+                _db.SaveChanges();
 
                 return productType.Name + "was succesfully deleted";
             }

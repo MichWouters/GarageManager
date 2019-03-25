@@ -2,11 +2,11 @@
 {
     public abstract class Repository
     {
-        protected ApplicationDbContext db;
+        protected ApplicationDbContext _db;
 
-        public Repository()
+        public Repository(ApplicationDbContext db)
         {
-            db = new ApplicationDbContext();
+            _db = db;
         }
     }
 }

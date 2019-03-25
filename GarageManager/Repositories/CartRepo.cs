@@ -11,8 +11,8 @@ namespace GarageManager.Repositories
         {
             try
             {
-                db.Carts.Add(cart);
-                db.SaveChanges();
+                _db.Carts.Add(cart);
+                _db.SaveChanges();
 
                 return "Order was succesfully inserted";
             }
@@ -27,7 +27,7 @@ namespace GarageManager.Repositories
             try
             {
                 //Fetch object from db
-                CartModel oldCart = db.Carts.Find(id);
+                CartModel oldCart = _db.Carts.Find(id);
 
                 oldCart.DatePurchased = cart.DatePurchased;
                 oldCart.ClientID = cart.ClientID;
@@ -35,7 +35,7 @@ namespace GarageManager.Repositories
                 oldCart.IsInCart = cart.IsInCart;
                 oldCart.ProductID = cart.ProductID;
 
-                db.SaveChanges();
+                _db.SaveChanges();
                 return cart.DatePurchased + " was succesfully updated";
             }
             catch (Exception e)
@@ -48,11 +48,11 @@ namespace GarageManager.Repositories
         {
             try
             {
-                CartModel cart = db.Carts.Find(id);
+                CartModel cart = _db.Carts.Find(id);
 
-                db.Carts.Attach(cart);
-                db.Carts.Remove(cart);
-                db.SaveChanges();
+                _db.Carts.Attach(cart);
+                _db.Carts.Remove(cart);
+                _db.SaveChanges();
 
                 return cart.DatePurchased + "was succesfully deleted";
             }
@@ -64,7 +64,7 @@ namespace GarageManager.Repositories
 
         public List<CartModel> GetOrdersInCart(string clientId)
         {
-            List<CartModel> orders = (from x in db.Carts
+            List<CartModel> orders = (from x in _db.Carts
                                  where x.ClientID == clientId
                                  && x.IsInCart
                                  orderby x.DatePurchased descending
@@ -76,7 +76,7 @@ namespace GarageManager.Repositories
         {
             try
             {
-                int amount = (from x in db.Carts
+                int amount = (from x in _db.Carts
                               where x.ClientID == clientId
                               && x.IsInCart
                               select x.Amount).Sum();
@@ -91,10 +91,10 @@ namespace GarageManager.Repositories
 
         public void UpdateQuantity(int id, int quantity)
         {
-            CartModel p = db.Carts.Find(id);
+            CartModel p = _db.Carts.Find(id);
             p.Amount = quantity;
 
-            db.SaveChanges();
+            _db.SaveChanges();
         }
 
         public void MarkOrdersAsPaid(List<CartModel> carts)
@@ -103,11 +103,11 @@ namespace GarageManager.Repositories
             {
                 foreach (CartModel cart in carts)
                 {
-                    CartModel oldCart = db.Carts.Find(cart.ID);
+                    CartModel oldCart = _db.Carts.Find(cart.ID);
                     oldCart.DatePurchased = DateTime.Now;
                     oldCart.IsInCart = false;
                 }
-                db.SaveChanges();
+                _db.SaveChanges();
             }
         }
     }

@@ -11,8 +11,8 @@ namespace GarageManager.Repositories
         {
             try
             {
-                db.Products.Add(product);
-                db.SaveChanges();
+                _db.Products.Add(product);
+                _db.SaveChanges();
 
                 return product.Name + " was succesfully inserted";
             }
@@ -27,7 +27,7 @@ namespace GarageManager.Repositories
             try
             {
                 //Fetch object from db
-                ProductModel p = db.Products.Find(id);
+                ProductModel p = _db.Products.Find(id);
 
                 p.Name = product.Name;
                 p.Price = product.Price;
@@ -35,7 +35,7 @@ namespace GarageManager.Repositories
                 p.Description = product.Description;
                 p.Image = product.Image;
 
-                db.SaveChanges();
+                _db.SaveChanges();
                 return product.Name + " was succesfully updated";
             }
             catch (Exception e)
@@ -48,11 +48,11 @@ namespace GarageManager.Repositories
         {
             try
             {
-                ProductModel product = db.Products.Find(id);
+                ProductModel product = _db.Products.Find(id);
 
-                db.Products.Attach(product);
-                db.Products.Remove(product);
-                db.SaveChanges();
+                _db.Products.Attach(product);
+                _db.Products.Remove(product);
+                _db.SaveChanges();
 
                 return product.Name + " was succesfully deleted";
             }
@@ -66,7 +66,7 @@ namespace GarageManager.Repositories
         {
             try
             {
-                ProductModel product = db.Products.Find(id);
+                ProductModel product = _db.Products.Find(id);
                 return product;
             }
             catch (Exception)
@@ -79,7 +79,7 @@ namespace GarageManager.Repositories
         {
             try
             {
-                List<ProductModel> products = (from x in db.Products
+                List<ProductModel> products = (from x in _db.Products
                                           select x).ToList();
                 return products;
             }
@@ -94,7 +94,7 @@ namespace GarageManager.Repositories
             try
             {
                 {
-                    List<ProductModel> products = (from x in db.Products
+                    List<ProductModel> products = (from x in _db.Products
                                               where x.TypeID == typeId
                                               select x).ToList();
                     return products;

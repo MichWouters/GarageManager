@@ -1,6 +1,4 @@
-﻿using GarageManager.Models;
-using GarageManager.Repositories;
-using System;
+﻿using System;
 using System.Web.UI.WebControls;
 
 namespace GarageManager.Pages.Management
@@ -9,8 +7,8 @@ namespace GarageManager.Pages.Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
+
         protected void grdProducts_RowEditing(object sender, GridViewEditEventArgs e)
         {
             //Get selected row
@@ -21,7 +19,6 @@ namespace GarageManager.Pages.Management
 
             //Redirect user to ManageProducts along with the selected rowId
             Response.Redirect("~/Pages/Management/ManageProducts.aspx?id= " + rowId);
-
         }
     }
 }

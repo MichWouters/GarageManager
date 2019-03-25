@@ -7,7 +7,7 @@ namespace GarageManager.Repositories
     {
         public UserDetailModel GetUserInformation(string guId)
         {
-            var info = (from x in db.UserDetails
+            var info = (from x in _db.UserDetails
                         where x.Guid == guId
                         select x).FirstOrDefault();
             return info;
@@ -15,8 +15,8 @@ namespace GarageManager.Repositories
 
         public void InsertUserDetail(UserDetailModel userDetail)
         {
-            db.UserDetails.Add(userDetail);
-            db.SaveChanges();
+            _db.UserDetails.Add(userDetail);
+            _db.SaveChanges();
         }
     }
 }
