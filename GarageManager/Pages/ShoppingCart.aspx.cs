@@ -25,8 +25,8 @@ namespace GarageManager.Pages
             string link = selectedLink.ID.Replace("del", "");
             int cartId = Convert.ToInt32(link);
 
-            var cartModel = new CartModel();
-            cartModel.DeleteCart(cartId);
+            var repo = new CartRepo();
+            repo.DeleteCart(cartId);
 
             Response.Redirect("~/Pages/ShoppingCart.aspx");
         }
@@ -39,18 +39,18 @@ namespace GarageManager.Pages
             int quantity = Convert.ToInt32(selectedList.SelectedValue);
 
             //Update purchase with new quantity and refresh page
-            CartModel cartModel = new CartModel();
-            cartModel.UpdateQuantity(cartId, quantity);
+            var repo = new CartRepo();
+            repo.UpdateQuantity(cartId, quantity);
             Response.Redirect("~/Pages/ShoppingCart.aspx");
         }
 
         private void GetPurchasesInCart(string userId)
         {
-            CartModel cartModel = new CartModel();
+            var cartRepo = new CartRepo();
             double subTotal = 0;
 
             //Get all purchases for current user and display in table
-            List<Cart> purchaseList = cartModel.GetOrdersInCart(userId);
+            List<CartModel> purchaseList = cartRepo.GetOrdersInCart(userId);
             CreateShopTable(purchaseList, out subTotal);
 
             //Add totals to webpage
