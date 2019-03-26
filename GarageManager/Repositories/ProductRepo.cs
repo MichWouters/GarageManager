@@ -80,7 +80,7 @@ namespace GarageManager.Repositories
             try
             {
                 List<ProductModel> products = (from x in _db.Products
-                                          select x).ToList();
+                                               select x).ToList();
                 return products;
             }
             catch (Exception)
@@ -95,8 +95,8 @@ namespace GarageManager.Repositories
             {
                 {
                     List<ProductModel> products = (from x in _db.Products
-                                              where x.TypeID == typeId
-                                              select x).ToList();
+                                                   where x.TypeID == typeId
+                                                   select x).ToList();
                     return products;
                 }
             }

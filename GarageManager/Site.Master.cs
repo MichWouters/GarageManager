@@ -1,7 +1,6 @@
 ﻿using GarageManager.Repositories;
 using Microsoft.AspNet.Identity;
 using System;
-using System.Net;
 using System.Web;
 using System.Web.UI;
 
@@ -36,9 +35,9 @@ namespace GarageManager
 
         protected void lnkLogOut_Click(object sender, EventArgs e)
         {
-            //AuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-            //authenticationManager.SignOut();
-            //Response.Redirect("Pages/Account/Login.aspx");
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("Pages/Account/Login.aspx");
         }
     }
 }
